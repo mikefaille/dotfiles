@@ -1,0 +1,12 @@
+[submodule "bash/liquidprompt"]
+	path = bash/.bashrc.d/liquidprompt
+	url = https://github.com/nojhan/liquidprompt.git
+[submodule "bash/dircolors-solarized"]
+	path = bash/.bashrc.d/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "bash/bash-sensible"]
+	path = bash/.bashrc.d/bash-sensible
+	url = https://github.com/mrzool/bash-sensible.git
+[submodule "emacs/.emacs.d"]
+	path = emacs/.emacs.d
+	url = https://github.com/mikefaille/.emacs.d.git
