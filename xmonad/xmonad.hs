@@ -47,7 +47,7 @@ import XMonad.Hooks.ManageHelpers
 
 myStartupHook = setWMName "LG3D"
                 >> spawnHere "killall stalonetray; stalonetray"
-                >> spawn "killall compton; compton -CG  backend glx"
+                >> spawn "killall compton; compton -CG  --backend glx --vsync opengl-swc --paint-on-overlay"
                 >> spawn "setxkbmap ca multi"
                 >> spawn "xset s blank && xset s 180 && xset dpms 0 360 420" -- Set screen blank after 3 min, turn off after 6 min. and suspend after 7 min.
                 >> spawn "xrdb -load ~/.Xresources" -- load .Xresources. I mainly want solarized dark as solarized theme.
