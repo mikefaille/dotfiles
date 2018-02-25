@@ -75,7 +75,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 altMask = mod1Mask
 myModMask = mod4Mask
 
-myTerminal = "export TERM=xterm; urxvt"
+myTerminal = "export TERM=xterm-256color ; alacritty"
 
 myWorkSpaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
