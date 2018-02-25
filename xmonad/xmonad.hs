@@ -41,7 +41,6 @@ import XMonad.Operations
 import XMonad.Actions.SpawnOn
 import XMonad.Hooks.SetWMName
 
-import XMonad.Hooks.ManageDocks
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
 
