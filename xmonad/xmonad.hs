@@ -127,9 +127,28 @@ myConfig = defaultConfig {
 
 
   } `additionalKeysP`
-        [ ("<XF86AudioRaiseVolume>", spawn "/home/mikefaille/bin/volume_level.sh up")   -- volume up
-        , ("<XF86AudioLowerVolume>", spawn "/home/mikefaille/bin/volume_level.sh down") -- volume down
-        , ("<XF86AudioMute>"       , spawn "/home/mikefaille/bin/volume_level.sh mute") -- mute
+        [ ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse sset Master 5%+")   -- volume up
+        , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse sset Master 5%-") -- volume down
+        , ("<XF86AudioMute>"       , spawn "amixer -D pulse sset Master toggle") -- mute
+                , ("<XF86AudioMute>"       , spawn "amixer -D pulse sset Master toggle") -- mute
+        , ( "<XF86AudioPlay>"
+          , spawn $
+            unwords
+                [ "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify"
+                , "/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+                ])
+        , ( "<XF86AudioNext>"
+          , spawn $
+            unwords
+                [ "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify"
+                , "/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+                ])
+        , ( "<XF86AudioPrevious>"
+          , spawn $
+            unwords
+                [ "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify"
+                , "/org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+                ])
         ]
    `additionalKeys`
         [ ((controlMask .|. altMask, xK_l), spawn "xlock")                             -- lock screen
