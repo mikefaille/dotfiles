@@ -43,15 +43,7 @@ import XMonad.Hooks.SetWMName
 
 import XMonad.Hooks.ManageDocks
 import qualified XMonad.StackSet as W
--- import XMonad.Layout.Fullscreen
--- import qualified XMonad.Layout.Fullscreen as FS
 import XMonad.Hooks.ManageHelpers
-
--- import XMonad.Actions.CycleWindows
-
-
--- let response = "killall compton; compton -CG  --backend glx --glx-use-copysubbuffermesa --glx-use-gpushader4 -d " ++ (putStrLn  =<< getEnv "DISPLAY")
---     putStrLn response
 
 myStartupHook = setWMName "LG3D"
                 >> spawnHere "killall stalonetray; stalonetray"
@@ -59,25 +51,6 @@ myStartupHook = setWMName "LG3D"
                 >> spawn "setxkbmap ca multi"
                 >> spawn "xset s blank && xset s 180 && xset dpms 0 360 420" -- Set screen blank after 3 min, turn off after 6 min. and suspend after 7 min.
                 >> spawn "xrdb -load ~/.Xresources" -- load .Xresources. I mainly want solarized dark as solarized theme.
-                >> spawn "compton"
-
-                --glx-use-copysubbuffermesa --glx-use-gpushader4 -d " ++ (putStrLn  =<< getEnv "DISPLAY")
-
-                -- >> spawnHere "killall nm-applet; nm-applet"
-                -- >> spawnHere "killall pasystray; pasystray"
-
-                -- >> spawnHere "feh --bg-scale $HOME/.xmonad/background.png"
-                -- >> spawnHere "xcompmgr"
-                -- >> spawnHere "python $HOME/bin/dropbox.py start"
-                -- >> spawnHere "$HOME/.xmonad/passbackups.sh"
-                -- >> spawnHere "$HOME/.xmonad/keymappings.sh"
-                -- >> spawnHere "sleep 15; $HOME/.xmonad/brightness.sh"
---                 >> spawnOn nine nvidiaMenu
---                 >> spawnOn four myMusic
--- --                >> spawnOn four myIm
---                 >> spawnOn three myTerminal
--- --                >> spawnOn two myEditorInit
---                 >> spawnOn one myInternet
 
 -- The main function.
 main = xmonad =<< statusBar myBar myXmobarPP toggleStrutsKey myConfig
