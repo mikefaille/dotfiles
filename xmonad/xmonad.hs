@@ -119,10 +119,16 @@ myConfig = defaultConfig {
   , focusFollowsMouse  = True
   , workspaces         = myWorkSpaces
   -- , layoutHook         = myLayoutHook
+  , layoutHook = smartBorders $
+                       avoidStruts $
+                       --smartSpacing 4 $
+                       Mirror (Tall 1 (3/100) (1/2))
+                       ||| Tall 1 (3/100) (1/2)
+                       ||| Full
   , manageHook         = manageHook defaultConfig <+> manageDocks  <+> myManageHook
   , normalBorderColor  = "#2a2b2f"
   , focusedBorderColor = "DarkOrange"
-  , borderWidth        = 1
+  , borderWidth        = 2
   , startupHook = myStartupHook
 
 
