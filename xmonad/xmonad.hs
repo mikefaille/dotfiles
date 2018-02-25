@@ -151,7 +151,7 @@ myConfig = defaultConfig {
                 ])
         ]
    `additionalKeys`
-        [ ((controlMask .|. altMask, xK_l), spawn "xlock")                             -- lock screen
+        [ ((controlMask .|. altMask, xK_l), spawn "xsecurelock || slock")                             -- lock screen
         , ((controlMask, xK_Print)        , spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures/")               -- screenshot
         , ((0, xK_Print)                  , spawn "scrot -e 'mv $f ~/Pictures/'")                             -- screenshot
         , ((mod4Mask, xK_o)               , spawn "dmenu_run")                         -- dmenu
