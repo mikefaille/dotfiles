@@ -46,7 +46,7 @@ import XMonad.Hooks.ManageHelpers
 
 myStartupHook = setWMName "LG3D"
                 >> spawnHere "killall stalonetray; stalonetray"
-                >> spawn "killall compton; compton -CG  --backend glx --vsync opengl-swc --paint-on-overlay"
+                >> spawn "killall compton; compton -CG  --backend glx --vsync opengl-swc --paint-on-overlay --mark-ovredir-focused"
                 >> spawn "setxkbmap ca multi"
                 >> spawn "xset s blank && xset s 180 && xset dpms 0 360 420" -- Set screen blank after 3 min, turn off after 6 min. and suspend after 7 min.
                 >> spawn "xrdb -load ~/.Xresources" -- load .Xresources. I mainly want solarized dark as solarized theme.
@@ -156,9 +156,9 @@ myConfig = defaultConfig {
                 ])
         ]
    `additionalKeys`
-        [ ((controlMask .|. altMask, xK_l), spawn "xsecurelock || slock")                             -- lock screen
-        , ((controlMask, xK_Print)        , spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures/")               -- screenshot
-        , ((0, xK_Print)                  , spawn "scrot -e 'mv $f ~/Pictures/'")                             -- screenshot
+        [ ((controlMask .|. altMask, xK_l), spawn "XSECURELOCK_NO_COMPOSITE=1  xsecurelock || slock")                             -- lock screen
+        , ((controlMask, xK_Print)        , spawn "sleep 0.2; scrot -s")               -- screenshot
+        , ((0, xK_Print)                  , spawn "scrot")                             -- screenshot
         , ((mod4Mask, xK_o)               , spawn "dmenu_run")                         -- dmenu
         , ((altMask, xK_Shift_L)          , spawn "/home/mikefaille/bin/layout-switch.sh") -- change layout
         , ((mod4Mask, xK_Left  ), prevWS)
